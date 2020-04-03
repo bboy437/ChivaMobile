@@ -1,0 +1,82 @@
+<div fxFlex class="table-component-holder mat-elevation-z4">
+  <mat-toolbar class="table-header">
+    <h1 style="font-size: 18px;font-family: Roboto;color:white;margin-top: 8px">
+      Import Promotion
+      <span style="font-size: 12px;"></span>
+    </h1>
+    </mat-toolbar>
+  
+    <div class="container">
+  
+  
+      <form class="mat-dialog-content" #formControl="ngForm">
+  
+        <table width="100%">
+          <tr>
+            <td style="width: 80%;">
+                <button mat-raised-button color="primary" [disabled]="!objRow.promotionId || !objRow.projectId || !namecsv"  (click)="btnSaveClick()">Save</button>
+            </td>
+  
+            <td style="width: 10%; ">
+              <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+            </td>
+        </table><br>
+  
+
+    <div class="form">
+      <mat-form-field class="example-full-width">
+        <mat-select required placeholder="Promotion Name" name="Promotion" (change)="promotionChange()"  [(ngModel)]="objRow.promotionId" [ngModelOptions]="{standalone: true}">
+          <mat-option *ngFor="let promotion of arrobjpromotion" [value]="promotion.id">
+            {{promotion.promotionName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field class="example-full-width">
+        <mat-select required placeholder="Project Name" name="SysEnum" [(ngModel)]="objRow.projectId" [ngModelOptions]="{standalone: true}">
+          <mat-option *ngFor="let sysenum of arrobjsysenum" [value]="sysenum.id">
+            {{sysenum.enumDesc}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+   
+        <!-- Upload(ไฟล์ .CSV)
+        <label required class="fileupload" id="#bb"> Browse...
+            <input required accept=".csv" type="file" #select id="fileuploadpdfUri" class="upload" (change)="changeListener($event.target.files)"
+              size="60">
+          </label> -->
+      <div style="position:relative;">
+        <!-- Upload(ไฟล์ .CSV *)
+        <a class='btn btn-primary' mat-raised-button color="primary" href='javascript:;'>
+            Browse...
+            <input required accept=".csv" type="file" #select id="fileuploadpdfUri" style="width:500px" class="upload" (change)="changeListener($event.target.files)"
+              style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'
+              name="file_source" size="40" onchange='$("#upload-file-info").html($(this).val());'>
+     
+            </a>
+        &nbsp;
+        <span class='label label-info' id="upload-file-info"></span> -->
+  
+        <label> Upload(ไฟล์ .CSV *)</label>
+        <label class="btn-upload">
+          <input accept=".csv" type="file" name="fileupload" #fileuploadpdfUri #select id="fileuploadpdfUri" (change)="changeListener($event.target.files)">
+          <button class="btn">Browse</button>
+  
+        </label>
+        {{namecsv}}
+        
+      </div>
+    </div>
+  </form><br><br>
+
+  <!-- <div class="dialog">
+    <button mat-raised-button color="primary" [disabled]="!objRow.promotionId || !objRow.projectId || !namecsv"  (click)="btnSaveClick()">Save</button>
+    <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+  </div> -->
+
+</div>

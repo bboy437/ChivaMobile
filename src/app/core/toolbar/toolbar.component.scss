@@ -1,0 +1,85 @@
+:host {
+  z-index: 4;
+}
+
+.table-header {
+  height: 65px;
+  background-color: #1f75c5;
+  color: white;
+}
+
+.main-toolbar {
+  height: 64px;
+  padding-left: 16px;
+}
+
+.more-btn {
+  height: 100%;
+  min-width: 70px;
+}
+
+.mat-icon-button {
+  margin-right: 10px;
+}
+
+.mat-select {
+  //  background-color: white;
+  // color: white;
+ font-size: 15px;
+}
+
+
+.table-container {
+  padding: 5px 15px 15px 15px;
+}
+.table-component-holder {
+  border: 1px solid #327ebd;
+  background-color: white;
+  height: auto;
+  color: white;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  color: white;
+  
+}
+
+.Hospital{
+  color: white;
+}
+
+.example-full-width {
+  color: white;
+  width: 30%;
+}
+
+.imgPlaceholder {
+  width: 40%;
+  height: auto;
+   width: auto;
+}
+
+.hospitalName{
+  font-size: 15px;
+  color:white;
+  width: 30%;
+  text-align: right
+}
+
+.hospitalName1{
+  width: 70vw;
+  width: 30%;
+
+}
+.not-empty-select.mat-selected {
+  color: white !important;
+}
+
+:host /deep/ .mat-select-value-text {
+  color: white !important;
+}
+

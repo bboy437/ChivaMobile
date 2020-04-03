@@ -1,0 +1,98 @@
+.table-header {
+    background-color: #327ebd;
+    color: white;
+    padding: 0 5px;
+    height: 50px;
+}
+.table-container {
+    padding: 5px 15px 15px 15px;
+}
+.table-component-holder {
+    border: 1px solid #327ebd;
+    background-color: white;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+.mat-header-cell {
+    display:flex;
+    justify-content:center;
+  }
+
+.mat-row{
+    min-height:33px;
+}
+
+.mat-header-row{
+    background-color: #9cb5e4;
+}
+.mat-row:nth-child(even){
+    background-color: #e9e5e5;
+    height: 10px;
+    color: white;
+}
+.mat-row:hover {
+    background-color:#faf9c8d3;
+}
+.mat-header-cell{
+    font-size: 14px;
+    font-weight: bold;
+}
+.mat-cell{
+    text-align: center;
+}
+
+.mat-cell.Name{
+    text-align: left;
+}
+
+.spinner-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .example-full-width1 {
+    width: 9%;
+  }
+  .example-full-width2 {
+    width: 80%;
+  }
+  .example-full-width3 {
+    width: 9%;
+  }
+
+
+   
+//   .uploadDate{
+//     flex: 0 0 150px;
+//  }
+//  .hospitalCode{
+//     flex: 0 0 300px;
+//  }
+
+//  .privilegeGroupCode{
+//     flex: 0 0 500px;
+//  }
+
+.mat-column-uploadDate{
+    flex: 0 0 12vw;
+}
+
+.mat-column-hospitalCode{
+    flex: 0 0 22vw;
+}
+
+.mat-column-privilegeGroupCode{
+    flex: 0 0 32vw;
+}

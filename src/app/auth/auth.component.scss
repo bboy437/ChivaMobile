@@ -1,0 +1,35 @@
+@mixin auth($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+
+    .table-header {
+        height: 50px;
+        background-color: #1f75c5;
+    }
+
+    .sidenav,.drawer{
+        background-color: #1f75c5;
+        overflow: hidden;
+        position: relative;
+    }
+    [no-over-flow] {
+        overflow: hidden;
+    }
+    .router-outlet{
+        position: relative;padding: 0px 5px;
+    }
+    .spacer {
+        width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: auto auto;
+        margin-top: auto;
+    }
+
+}
+

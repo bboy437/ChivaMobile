@@ -1,0 +1,81 @@
+.table-header {
+    background-color: #327ebd;
+    color: white;
+    padding: 0 5px;
+    height: 50px;
+}
+.table-container {
+    padding: 5px 15px 15px 15px;
+}
+.table-component-holder {
+    border: 1px solid #327ebd;
+    background-color: white;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+.mat-header-cell {
+    display:flex;
+    justify-content:center;
+  }
+
+.mat-row{
+    min-height:33px;
+}
+
+.mat-header-row{
+    background-color: #9cb5e4;
+}
+.mat-row:nth-child(even){
+    background-color: #e9e5e5;
+    height: 10px;
+    color: white;
+}
+.mat-row:hover {
+    background-color:#faf9c8d3;
+}
+
+.mat-header-cell{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.mat-cell{
+    text-align: center;
+}
+
+.mat-cell.Name{
+    text-align: left;
+}
+
+
+.spinner-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mat-column-enumOrder{
+    flex: 0 0 20vw;
+ }
+ .mat-column-enumName{
+    flex: 0 0 10vw;
+ }
+
+ .mat-column-enumDesc{
+    flex: 0 0 25vw;
+ }
+
+ .mat-column-enumValue{
+    flex: 0 0 13vw;
+ }

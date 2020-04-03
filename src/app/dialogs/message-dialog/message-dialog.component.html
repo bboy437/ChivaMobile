@@ -1,0 +1,26 @@
+
+<div class="mat-dialog-container">
+    <div class="container">
+
+        <mat-toolbar color="primary"><mat-icon class="iconsize">info</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Please fill in all information.</label></mat-toolbar>
+    <br>
+    <!-- &nbsp; -->
+        <mat-grid-list cols="12" rowHeight="50px">
+            <mat-grid-tile class="text-inside-grid" colspan="12">
+                <h3 class="textbody" mat-dialog-title>{{data.Messagebody}}</h3>
+            </mat-grid-tile>
+        </mat-grid-list>     
+          
+        <mat-grid-list cols="12" rowHeight="50px">
+            <mat-grid-tile colspan="12">
+                <button mat-raised-button color="primary" (click)="OKClick()" [mat-dialog-close]="true">OK</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </div>
+</div>
+
+    
+
+
+

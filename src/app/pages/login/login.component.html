@@ -1,0 +1,44 @@
+<div fxLayout="column" fxFlexFill fxLayoutAlign="center center" style="background-image:url('./assets/login11.jpg');
+height: 100%;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover; ">
+    <div fxLayout="column">
+
+        <div class="mat-elevation-z4">
+
+
+            <mat-card>
+                <mat-card-title>
+                    <img src="./assets/images/Untitled-4.png">
+                </mat-card-title>
+
+                <mat-card-title>
+              Chiva Mobile Web Admin
+                    <!-- <a class="redirect" [routerLink]="['/sigup']">Register an account</a> -->
+                </mat-card-title>
+                <mat-card-content>
+                    <form fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="userForm" (ngSubmit)="login()">
+                        <mat-form-field class="full-width">
+                            <input type="username" id="username" class="input" placeholder="Please enter your username" [(ngModel)]="model.username"
+                                formControlName="username" required matInput>
+                        </mat-form-field>
+                        <div *ngIf="formErrors.username" class="help is-danger">
+                            {{ formErrors.username }}
+                        </div>
+                        <mat-form-field class="full-width">
+                            <input type="password" id="password" class="input" [(ngModel)]="model.password"  placeholder="please  enter your password"
+                                formControlName="password" required matInput>
+                        </mat-form-field>
+                        <div *ngIf="formErrors.password" class="help is-danger">
+                            {{ formErrors.password }}
+                        </div>
+                        <button mat-raised-button color="primary" type="submit" (click)="btnLoginClick()">Log In</button>
+                        <br>
+                        <button mat-raised-button color="warn" type="clear" (click)="clear()">Clear</button>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

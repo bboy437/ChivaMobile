@@ -1,0 +1,62 @@
+<div fxLayout="column" class="components-container-gt-xs" fxLayoutGap="20px">
+
+  <mat-toolbar class="table-header">
+    <h1 style="font-size: 18px;font-family: Roboto;color:white;margin-top: 8px">
+      รายงานผู้ลงทะเบียน
+      <span style="font-size: 12px;"></span>
+    </h1>
+    </mat-toolbar>
+  
+  <div fxFlex="98" fxFlex.xs="50" fxFlex.sm="90" fxLayout="column" fxLayoutAlign="center" class="table-container">
+  
+  
+  
+    <mat-card>
+
+      <div class="container" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+        <div fxFlex="20">
+        </div>
+
+        <mat-form-field class="Registration">
+          <input matInput [(ngModel)]="frDate"  [matDatepicker]="picker1" placeholder="Registration Date From" >
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <div fxFlex="5">
+        </div>
+
+
+        <div fxFlex="20">
+          <mat-form-field class="Registration">
+            <input matInput [(ngModel)]="toDate"   [matDatepicker]="picker2" placeholder="Registration Date To" >
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <table width="30%">
+          <tr>
+            <td style="width: 25%;">
+              <!-- <button mat-raised-button color="primary" (click)="btnSaveClick()">Save</button> -->
+            </td>
+            <td style="width: 5%; ">
+              <button mat-raised-button color="accent" (click)="btnCloseClick()">Close</button>
+            </td>
+        </table>
+        
+      </div>
+    </mat-card>
+
+    <mat-card>
+      <wbr-pivot #pivot1 [toolbar]="true" [width]="'100%'" [height]="406" [customizeCell]="onCustomizeCell" (ready)="onPivotReady($event)"
+        (beforetoolbarcreated)="customizeToolbar($event)" (reportcomplete)="onReportComplete($event)">
+      </wbr-pivot>
+    </mat-card>
+ 
+  
+  
+  </div>
+  
+  </div>
+  

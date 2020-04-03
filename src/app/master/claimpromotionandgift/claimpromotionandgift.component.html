@@ -1,0 +1,46 @@
+<div fxLayout="column" class="components-container-gt-xs" fxLayoutGap="20px">
+  <div fxFlex class="table-component-holder mat-elevation-z4">
+    <mat-toolbar class="table-header">
+      <h1 style="font-size: 18px;font-family: Roboto;color:white;margin-top: 8px">
+        Claim Promotion And Gift
+        <span style="font-size: 12px;"></span>
+      </h1>
+    </mat-toolbar>
+
+    <br><br>
+    <div class="table-container">
+      <div class="container" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+        <div fxFlex="17">
+        </div>
+        <mat-form-field class="Claim">
+          <mat-select required placeholder="Claim Type" [(ngModel)]="objClaim">
+            <mat-option value="CP">Promotion</mat-option>
+            <mat-option value="CG">Gift</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <br>
+        <div fxFlex="5">
+        </div>
+        <div [ngSwitch]="objClaim">
+          <div fxFlex="20">
+            <div *ngSwitchCase="'CP'">
+              <mat-form-field class="ClaimReedeem">
+                <input matInput required placeholder="Redeem No." [(ngModel)]="objRowClaimPromotion.redeemNo">
+              </mat-form-field>
+            </div>
+            <div *ngSwitchCase="'CG'">
+              <mat-form-field class="ClaimReedeem">
+                <input required matInput placeholder="Redeem No." [(ngModel)]="objRowClaimGif.redeemNo">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div><br>
+
+      <div class="wrapper">
+        <button class="buttonGreen" mat-raised-button color="primary" type="submit" (click)="btnSaveClick()">Claim</button>
+      </div><br>
+
+    </div>
+  </div>

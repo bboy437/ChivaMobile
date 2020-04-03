@@ -1,0 +1,58 @@
+@mixin mat-list-icon($size: 24px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
+}
+@mixin mat-chip() {
+    padding: 1px 7px;
+}
+
+@mixin sidemenu-item($theme,$icon-size) {
+    .sidenav-dropdown-indicator {
+        transition: transform .25s;
+        &.indicateOpen {
+            transform: rotate(180deg);
+        }
+    }
+    mat-nav-list {
+        overflow: hidden;
+        height: 48px;
+        transition: height .4s cubic-bezier(.35, 0, .25, 1);  
+    }
+
+    .secondaryMenu {
+        background:  #81A8C9;
+    }
+
+    // .sidenav .mat-nav-list {
+    //     padding: 8px 8px 8px 32px;
+    //     text-decoration: none;
+    //     font-size: 25px;
+    //     color: #818181;
+    //     display: block;
+    //     transition: 0.3s;
+    // }
+    
+    // .sidenav a:hover {
+    //     color: #f1f1f1;
+    // }
+
+    .mat-nav-list .mat-list-item .mat-list-icon{
+        @include mat-list-icon($icon-size);
+        
+    }
+    .mat-chip:not(.mat-basic-chip){
+        @include mat-chip()
+    }
+    .mat-nav-list .mat-list-item {
+        color: white;
+        font-size: 14px;
+    }
+
+    .mat-nav-list:hover {
+        background-color:#292FD6;
+    }
+
+  
+}
+

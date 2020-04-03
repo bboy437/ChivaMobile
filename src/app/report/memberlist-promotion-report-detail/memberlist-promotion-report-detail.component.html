@@ -1,0 +1,51 @@
+<div fxLayout="column" class="components-container-gt-xs" fxLayoutGap="20px">
+
+  <mat-toolbar class="table-header">
+    <h1 style="font-size: 18px;font-family: Roboto;color:white;margin-top: 8px">
+      รายงานรายชื่อสมาชิกที่ได้รับ Promotion
+      <span style="font-size: 12px;"></span>
+    </h1>
+  </mat-toolbar>
+
+  <div fxFlex="98" fxFlex.xs="50" fxFlex.sm="90" fxLayout="column" fxLayoutAlign="center" class="table-container">
+
+    <mat-card>
+
+      <div class="container" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+
+        <div fxFlex="3">
+        </div>
+
+        <mat-form-field class="Gift">
+          <input matInput placeholder="Promotion Name" [(ngModel)]="objgpromotion.promotionName">
+        </mat-form-field>
+
+        <div fxFlex="5">
+        </div>
+
+        <mat-form-field class="Gift">
+          <input matInput placeholder="Project Name" [(ngModel)]="objEnum.enumDesc">
+        </mat-form-field>
+
+        <table width="25%">
+            <tr>
+              <td style="width: 20%;">
+                <!-- <button mat-raised-button color="primary" (click)="btnSaveClick()">Save</button> -->
+              </td>
+              <td style="width: 5%; ">
+                <button mat-raised-button color="accent" (click)="btnCloseClick()">Close</button>
+              </td>
+          </table>
+      </div>
+    </mat-card>
+
+    <mat-card>
+      <wbr-pivot #pivot1 [toolbar]="true" [width]="'100%'" [height]="406" [customizeCell]="onCustomizeCell" (ready)="onPivotReady($event)"
+        (beforetoolbarcreated)="customizeToolbar($event)" (reportcomplete)="onReportComplete($event)">
+      </wbr-pivot>
+    </mat-card>
+
+
+  </div>
+
+</div>

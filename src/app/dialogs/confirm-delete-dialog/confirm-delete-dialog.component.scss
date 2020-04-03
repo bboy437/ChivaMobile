@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  // min-width: 0vw;
+  // min-height: 0vw;
+  padding: 12px 12px 25px 25px;
+  //  padding: 20%;
+  // padding: 2vw 2vw 1vh 1vh;
+  // width: 100%;
+}
+
+.container > * {
+  width: 100%;
+}

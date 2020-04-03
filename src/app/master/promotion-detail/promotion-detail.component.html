@@ -1,0 +1,349 @@
+<div fxLayout="column" class="components-container-gt-xs" fxLayoutGap="20px">
+  <div class="spinner-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div fxFlex="98" fxFlex.xs="100" fxFlex.sm="90" fxLayout="column" fxLayoutAlign="center" class="table-component-holder mat-elevation-z4">
+    <mat-toolbar class="table-header">
+      <h1 style="font-size: 18px;font-family: Roboto;color:white;margin-top: 8px">
+        Promotion
+        <span style="font-size: 12px;"></span>
+      </h1>
+    </mat-toolbar>
+
+    <div fxFlex="98" fxFlex.xs="50" fxFlex.sm="90" fxLayout="column" fxLayoutAlign="center" class="table-container">
+      <table width="100%">
+        <tr>
+          <td style="width: 90%;">
+            <button mat-raised-button color="primary" (click)="btnSaveClick()">Save</button>
+          </td>
+          <td style="width: 10%; ">
+            <button mat-raised-button color="accent" (click)="btnCloseClick()">Close</button>
+          </td>
+      </table>
+
+      <br>
+      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+        <div fxFlexLayoutWrap fxFlex.xs="100" fxFlex.lg="50" fxFlex.md="50" fxFlex.sm="50">
+          <div class="cards-container">
+            <!-- [readonly]="isReadOnly"  -->
+            <!-- required -->
+            <mat-card>
+              <!-- <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="10px"> -->
+              <mat-form-field class="picker">
+                <input matInput readonly placeholder="Promotion No" [(ngModel)]="objRow.promotionNo" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+              <mat-form-field class="picker">
+                <input matInput required placeholder="Promotion Name" [(ngModel)]="objRow.promotionName"
+                  [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+              <!-- </div> -->
+
+              <div [ngSwitch]="isAdmin">
+                <div *ngSwitchCase="'true'">
+                  <section class="row1" fxLayout="row">
+                    Promotion Group : &nbsp;
+                    <mat-radio-group [(ngModel)]="objRow.promotionGroup" [ngModelOptions]="{standalone: true}" fxLayout="column"
+                      fxLayoutGap=10px>
+                      <mat-radio-button value="Y" (click)=radio1disbleClick(1)>
+                        โรงพยาบาลทั้งหมด
+                      </mat-radio-button>
+                      <mat-radio-button value="N" (click)=radio1disbleClick(2)>
+                        เฉพาะ
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </section>
+                  <br>
+                  <div class="container" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+                    <div fxFlex="30">
+                    </div>
+                    <div fxFlex="69.50">
+
+                      <mat-form-field class="example-full-width">
+                        <mat-select [disabled]="exampleFlag1" placeholder="Hospital Name" name="Hospital" [(ngModel)]="objRow.hospitalName"
+                          [ngModelOptions]="{standalone: true}">
+                          <mat-option *ngFor="let hospital of arrobjhospital" [value]="hospital.hospitalName">
+                            {{hospital.hospitalName}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngSwitchCase="'false'">
+                  <section class="row1" fxLayout="row">
+                    Promotion Group * &nbsp;
+                    <mat-radio-group [(ngModel)]="objRow.promotionGroup" [ngModelOptions]="{standalone: true}" fxLayout="column"
+                      fxLayoutGap=10px>
+                      <mat-radio-button value="N" (click)=radio1disbleClick(2)>
+                        เฉพาะ
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </section>
+                  <br>
+                  <div class="container" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+                    <div fxFlex="30">
+                    </div>
+                    <div fxFlex="69.50">
+
+                      <mat-form-field class="example-full-width">
+                        <mat-select placeholder="Hospital Name" [(ngModel)]="objRow.hospitalName" [ngModelOptions]="{standalone: true}">
+                          <mat-option *ngFor="let hospital of arrobjhospitalID" [value]="hospital.hospitalName">
+                            {{hospital.hospitalName}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <br>
+
+              <!-- 
+            <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="10px"> -->
+              <mat-form-field class="picker">
+                <input matInput readonly="isReadOnly" [matDatepicker]="picker" placeholder="Start Date" [(ngModel)]="paStartDate ">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field class="picker">
+                <input matInput [matDatepicker]="picker1" placeholder="End Date" [(ngModel)]="paEndDate">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+              <!-- </div> -->
+
+              <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="10px">
+                <section fxLayout="row">
+                  <label for="processedCheckBox">Promotion Type : </label> &nbsp;
+                  <section fxLayout="column" fxLayoutGap=10px>
+                    <!-- <mat-checkbox [(ngModel)]="ispromotionTypeBrochure" [ngModelOptions]="{standalone: true}" (change)="CheckBoxpromotionTypeBrochure()">โบว์ชัวร์</mat-checkbox> -->
+                    <mat-checkbox [(ngModel)]="ispromotionTypeRedeem" [ngModelOptions]="{standalone: true}" (change)="CheckBoxpromotionTypeRedeem()">REDEEMABLE</mat-checkbox>
+                    <div class="REDEEMABLE1">
+                      <mat-form-field class="REDEEMABLE">
+                        <input matInput type="number" [disabled]="exampleFlag" placeholder="จำนวน" [(ngModel)]="objRow.redeemQty"
+                          [ngModelOptions]="{standalone: true}">
+                      </mat-form-field>
+                      <button mat-raised-button color="primary" (click)="btnRedeemClick()">ประวัติ REDEEM</button>
+                    </div>
+                    <br>
+                  </section>
+                </section>
+              </div>
+
+              <section>
+                <label>Show Location * </label> &nbsp;
+                <mat-radio-group [(ngModel)]="objRow.showByLocation" [ngModelOptions]="{standalone: true}">
+                  <mat-radio-button value="N">
+                    ไม่แสดง
+                  </mat-radio-button>
+                  <mat-radio-button value="Y">
+                    แสดง
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+
+              <br>
+
+
+              <mat-form-field class="fromage">
+                <mat-select placeholder="เพศ" [(ngModel)]="objRow.gender" [ngModelOptions]="{standalone: true}">
+                  <mat-option value="1">ชาย</mat-option>
+                  <mat-option value="0">หญิง</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="fromage">
+                <mat-select placeholder="สัญชาติ" [(ngModel)]="objRow.nationalityCode" [ngModelOptions]="{standalone: true}">
+                  <mat-option value="ไทย">ไทย</mat-option>
+                  <mat-option value="อื่นๆ">อื่นๆ</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="fromage">
+                <mat-select placeholder="เดือนเกิด" [(ngModel)]="monthOfBirth" [ngModelOptions]="{standalone: true}">
+                  <mat-option value="1">มกราคม</mat-option>
+                  <mat-option value="2">กุมภาพันธ์</mat-option>
+                  <mat-option value="3">มีนาคม</mat-option>
+                  <mat-option value="4">เมษายน</mat-option>
+                  <mat-option value="5">พฤษภาคม</mat-option>
+                  <mat-option value="6">มิถุนายน</mat-option>
+                  <mat-option value="7">กรกฎาคม</mat-option>
+                  <mat-option value="8">สิงหาคม</mat-option>
+                  <mat-option value="9">กันยายน</mat-option>
+                  <mat-option value="10">ตุลาคม</mat-option>
+                  <mat-option value="11">พฤศจิกายน</mat-option>
+                  <mat-option value="12">ธันวาคม</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <section>
+                <label>อายุ:</label>
+                <mat-radio-group [(ngModel)]="objRow.age" [ngModelOptions]="{standalone: true}">
+                  <mat-radio-button value="N" (click)=radiodisbleClick(1)>
+                    ไม่ระบุ
+                  </mat-radio-button>
+                  <mat-radio-button value="Y" (click)=radiodisbleClick(2)>
+                    ระบุ
+                  </mat-radio-button>
+                </mat-radio-group>
+                <mat-form-field class="age">
+                  <input matInput type="number" [(ngModel)]="objRow.ageFrom" [disabled]="radiodisble" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+                ถึง
+                <mat-form-field class="age">
+                  <input matInput type="number" [(ngModel)]="objRow.ageTo" [disabled]="radiodisble" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+              </section>
+
+              <mat-form-field class="provinceCode">
+                <mat-select placeholder="จังหวัด" [(ngModel)]="objRow.provinceCode" [ngModelOptions]="{standalone: true}">
+                  <!-- <mat-option value="" selected>--------- เลือกจังหวัด ---------</mat-option> -->
+                  <mat-option value="กรุงเทพมหานคร">กรุงเทพมหานคร</mat-option>
+                  <mat-option value="กระบี่">กระบี่ </mat-option>
+                  <mat-option value="กาญจนบุรี">กาญจนบุรี </mat-option>
+                  <mat-option value="กาฬสินธุ์">กาฬสินธุ์ </mat-option>
+                  <mat-option value="กำแพงเพชร">กำแพงเพชร </mat-option>
+                  <mat-option value="ขอนแก่น">ขอนแก่น</mat-option>
+                  <mat-option value="จันทบุรี">จันทบุรี</mat-option>
+                  <mat-option value="ฉะเชิงเทรา">ฉะเชิงเทรา </mat-option>
+                  <mat-option value="ชัยนาท">ชัยนาท </mat-option>
+                  <mat-option value="ชัยภูมิ">ชัยภูมิ </mat-option>
+                  <mat-option value="ชุมพร">ชุมพร </mat-option>
+                  <mat-option value="ชลบุรี">ชลบุรี </mat-option>
+                  <mat-option value="เชียงใหม่">เชียงใหม่ </mat-option>
+                  <mat-option value="เชียงราย">เชียงราย </mat-option>
+                  <mat-option value="ตรัง">ตรัง </mat-option>
+                  <mat-option value="ตราด">ตราด </mat-option>
+                  <mat-option value="ตาก">ตาก </mat-option>
+                  <mat-option value="นครนายก">นครนายก </mat-option>
+                  <mat-option value="นครปฐม">นครปฐม </mat-option>
+                  <mat-option value="นครพนม">นครพนม </mat-option>
+                  <mat-option value="นครราชสีมา">นครราชสีมา </mat-option>
+                  <mat-option value="นครศรีธรรมราช">นครศรีธรรมราช </mat-option>
+                  <mat-option value="นครสวรรค์">นครสวรรค์ </mat-option>
+                  <mat-option value="นราธิวาส">นราธิวาส </mat-option>
+                  <mat-option value="น่าน">น่าน </mat-option>
+                  <mat-option value="นนทบุรี">นนทบุรี </mat-option>
+                  <mat-option value="บึงกาฬ">บึงกาฬ</mat-option>
+                  <mat-option value="บุรีรัมย์">บุรีรัมย์</mat-option>
+                  <mat-option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์ </mat-option>
+                  <mat-option value="ปทุมธานี">ปทุมธานี </mat-option>
+                  <mat-option value="ปราจีนบุรี">ปราจีนบุรี </mat-option>
+                  <mat-option value="ปัตตานี">ปัตตานี </mat-option>
+                  <mat-option value="พะเยา">พะเยา </mat-option>
+                  <mat-option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา </mat-option>
+                  <mat-option value="พังงา">พังงา </mat-option>
+                  <mat-option value="พิจิตร">พิจิตร </mat-option>
+                  <mat-option value="พิษณุโลก">พิษณุโลก </mat-option>
+                  <mat-option value="เพชรบุรี">เพชรบุรี </mat-option>
+                  <mat-option value="เพชรบูรณ์">เพชรบูรณ์ </mat-option>
+                  <mat-option value="แพร่">แพร่ </mat-option>
+                  <mat-option value="พัทลุง">พัทลุง </mat-option>
+                  <option value="ภูเก็ต">ภูเก็ต </option>
+                  <mat-option value="มหาสารคาม">มหาสารคาม </mat-option>
+                  <mat-option value="มุกดาหาร">มุกดาหาร </mat-option>
+                  <mat-option value="แม่ฮ่องสอน">แม่ฮ่องสอน </mat-option>
+                  <mat-option value="ยโสธร">ยโสธร </mat-option>
+                  <mat-option value="ยะลา">ยะลา </mat-option>
+                  <mat-option value="ร้อยเอ็ด">ร้อยเอ็ด </mat-option>
+                  <mat-option value="ระนอง">ระนอง </mat-option>
+                  <mat-option value="ระยอง">ระยอง </mat-option>
+                  <mat-option value="ราชบุรี">ราชบุรี</mat-option>
+                  <mat-option value="ลพบุรี">ลพบุรี </mat-option>
+                  <mat-option value="ลำปาง">ลำปาง </mat-option>
+                  <mat-option value="ลำพูน">ลำพูน </mat-option>
+                  <mat-option value="เลย">เลย </mat-option>
+                  <mat-option value="ศรีสะเกษ">ศรีสะเกษ</mat-option>
+                  <mat-option value="สกลนคร">สกลนคร</mat-option>
+                  <mat-option value="สงขลา">สงขลา </mat-option>
+                  <mat-option value="สมุทรสาคร">สมุทรสาคร </mat-option>
+                  <mat-option value="สมุทรปราการ">สมุทรปราการ </mat-option>
+                  <mat-option value="สมุทรสงคราม">สมุทรสงคราม </mat-option>
+                  <mat-option value="สระแก้ว">สระแก้ว </mat-option>
+                  <mat-option value="สระบุรี">สระบุรี </mat-option>
+                  <mat-option value="สิงห์บุรี">สิงห์บุรี </mat-option>
+                  <mat-option value="สุโขทัย">สุโขทัย </mat-option>
+                  <mat-option value="สุพรรณบุรี">สุพรรณบุรี </mat-option>
+                  <mat-option value="สุราษฎร์ธานี">สุราษฎร์ธานี </mat-option>
+                  <mat-option value="สุรินทร์">สุรินทร์ </mat-option>
+                  <mat-option value="สตูล">สตูล </mat-option>
+                  <mat-option value="หนองคาย">หนองคาย </mat-option>
+                  <mat-option value="หนองบัวลำภู">หนองบัวลำภู </mat-option>
+                  <mat-option value="อำนาจเจริญ">อำนาจเจริญ </mat-option>
+                  <mat-option value="อุดรธานี">อุดรธานี </mat-option>
+                  <mat-option value="อุตรดิตถ์">อุตรดิตถ์ </mat-option>
+                  <mat-option value="อุทัยธานี">อุทัยธานี </mat-option>
+                  <mat-option value="อุบลราชธานี">อุบลราชธานี</mat-option>
+                  <mat-option value="อ่างทอง">อ่างทอง </mat-option>
+                  <mat-option value="อื่นๆ">อื่นๆ</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <mat-select placeholder="ประเภทบัตรสมาชิก" name="MemberCardType" [(ngModel)]="objRow.memberType"
+                  [ngModelOptions]="{standalone: true}">
+                  <mat-option *ngFor="let memberCardtype of arrobjmemberCardtype" [value]="memberCardtype.cardCode">
+                    {{memberCardtype.cardDesc}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+              <div>
+                <mat-checkbox class="example-full-width" [(ngModel)]="ismemberNotRenewStatus" [ngModelOptions]="{standalone: true}"
+                  (change)="CheckBoxmemberNotRenewStatus()"></mat-checkbox>
+                <label>สมาชิกที่ไม่ต่ออายุบัตร (ยกเว้นเสียชีวิต)</label>
+              </div>
+
+            </mat-card>
+          </div>
+        </div>
+
+        <div fxFlexLayoutWrap fxFlex.xs="100" fxFlex.lg="50" fxFlex.md="50" fxFlex.sm="50">
+          <div class="header">
+            <mat-card>
+              <div class="container" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+                <div fxFlex="100" style="margin-left: 0px;">
+                  <label>รูปปก(ไฟล์ .JPG,.PNG *)</label>
+                  <label style="margin-block-start: -50px" class="btn-upload">
+                    <input accept="image/*" type="file" name="fileupload" #fileInputcoverImage #select id="fileInputcoverImage"
+                      (change)="showPreviewcoverImage($event)">
+                    <button class="btn">Browse</button>
+                  </label>
+                  <label>{{objRow.coverImageLocation}}</label>
+                </div>
+              </div>
+              <!-- <span id="file-name" class="fileuploadimage"></span> -->
+
+              <!-- <input  id="file-name" class="fileuploadimage" matInput readonly  [(ngModel)]="objRow.coverImageLocation" [ngModelOptions]="{standalone: true}"> -->
+              <br>
+              <img style="margin-left: 0px;" [src]="localcoverImage" style='width:37vw;height: 34vh;'>
+
+
+              <br>
+              <br>
+              <div class="container" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+                <div fxFlex="100" style="margin-left: 0px;">
+                  <label>รูปรายละเอียด(ไฟล์ .JPG,.PNG *)</label>
+                  <label class="btn-upload">
+                    <input accept="image/*" type="file" name="fileupload" #fileInputdetailImage #select id="fileInputdetailImage"
+                      (change)="showPreviewlocaldetailImage($event)">
+                    <button class="btn">Browse</button>
+                  </label>
+                  <label>{{objRow.detailImageLocation}}</label>
+
+                </div>
+              </div>
+              <br>
+              <img style="margin-left: 0px;" [src]="localdetailImage" width="260" height="400">
+
+              <br>
+            </mat-card>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

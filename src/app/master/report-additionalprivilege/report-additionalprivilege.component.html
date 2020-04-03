@@ -1,0 +1,32 @@
+<div fxLayout="column" class="components-container-gt-xs" fxLayoutGap="20px">
+
+  <mat-toolbar class="table-header">
+    <h1 style="font-size: 18px;font-family: Roboto;color:white;margin-top: 8px">
+      Additional Privilege Report 
+      <span style="font-size: 12px;"></span>
+    </h1>
+    </mat-toolbar>
+  
+  <div fxFlex="98" fxFlex.xs="50" fxFlex.sm="90" fxLayout="column" fxLayoutAlign="center" class="table-container">
+  
+      <table width="100%">
+        <tr>
+          <td style="width: 90%;">
+            <!-- <button mat-raised-button color="primary" (click)="btnSaveClick()">Save</button> -->
+          </td>
+          <td style="width: 10%; ">
+            <button mat-raised-button color="accent" (click)="btnCloseClick()">Close</button>
+          </td>
+      </table><br> 
+  
+      <mat-card>
+        <wbr-pivot #pivot1 [toolbar]="true" [width]="'100%'" [height]="406" [customizeCell]="onCustomizeCell" (ready)="onPivotReady($event)"
+          (beforetoolbarcreated)="customizeToolbar($event)" (reportcomplete)="onReportComplete($event)">
+        </wbr-pivot>
+      </mat-card>
+  
+  
+  </div>
+  
+  </div>
+  

@@ -1,0 +1,242 @@
+.table-header {
+
+    color: white;
+    padding: 0 5px;
+    height: 50px;
+}
+
+.table-container {
+    padding: 5px 15px 15px 15px;
+}
+.table-component-holder {
+    border: 1px solid #327ebd;
+    background-color: white;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 99%;
+  }
+
+  // cdk-datepicker {
+	.datepicker-header {
+		background-color: #327ebd;
+		color: white;
+		padding: 0 5px;
+	}
+	.datepicker-container {
+		padding: 5px 15px 15px 15px;
+		// color: white;
+	}
+// }
+.datepicker-component-holder {
+	border: 1px solid #327ebd;
+	background-color: white;
+
+	h4 {
+		color: #327ebd;
+		margin: 14px 0;
+	}
+
+	mat-divider {
+		margin-bottom: 10px;
+	}
+}
+
+
+
+.widgetHolder{
+    margin:20px 20px 20px 20px;
+    background-color:white;
+}
+
+:host #discipline-qe /deep/ .ql-container{
+  height: 500px;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+
+ 
+.form-full-width {
+    min-width: 150px;
+    max-width: 500px;
+    width:100%;
+}
+
+.input-full-width {
+    width:800px;
+}
+
+.mat-form-field.HospitalName {
+    width:100%;
+}
+
+.mat-form-field.fromage {
+    width:32%;
+}
+
+.mat-form-field.age {
+    width:28%;
+}
+
+.mat-form-field.provinceCode {
+    width:50%;
+}
+
+.mat-form-field.REDEEMABLE {
+    width:30%;
+}
+
+.mat-form-field.REDEEMABLE1 {
+    width:30%;
+}
+
+.mat-form-field.picker {
+    width:49%;
+}
+
+.row1 {
+    width:80%;
+}
+
+
+.asdfgg1{
+
+    width:100%;
+}
+
+.imgPlaceholder2 {
+
+    // width: 100%;
+    // width: 500px;
+    height: auto;
+    // height: 230px;
+  
+}
+.imgPlaceholder1 {
+    width: 100%;
+    width: 230px;
+    height: auto;
+    height: 400px;
+}
+.fileupload1{
+    width: 24%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+
+
+.mat-form-field.input.aaaa{
+   
+    background-color: #5c6bc0
+
+}
+
+
+.btn-upload {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+.btn-upload input[type=file] {
+    position: absolute;
+    opacity: 0;
+    z-index: 0;
+    max-width: 100%;
+    height: 100%;
+    display: block;
+   
+    // margin-block-start: -10px;
+}
+.btn-upload .btn{
+    padding: 8px 20px;
+    background: #337ab7;
+    border: 1px solid #2e6da4;
+    color: #fff;
+    border: 0;
+  
+}
+.btn-upload:hover .btn{
+    padding: 8px 20px;
+    background: #2e6da4;
+    color: #fff;
+    border: 0;
+}
+
+
+
+.example-radio-button {
+    margin: 5px;
+  }
+  .radio-header {
+      background-color: #327ebd;
+      color: white;
+      padding: 0 5px;
+  }
+  .radio-container {
+      padding: 5px 15px 15px 15px;
+  }
+  .radio-component-holder {
+      border: 1px solid #327ebd;
+      background-color: white;
+  
+      h4 {
+          color: #327ebd;
+          margin: 14px 0;
+      }
+  
+      mat-divider {
+          margin-bottom: 10px;
+      }
+  }
+  // cdk-checkbox {
+	.checkbox-header {
+		background-color: #327ebd;
+		color: white;
+		padding: 0 5px;
+	}
+	
+// }
+.checkbox-component-holder {
+	border: 1px solid #327ebd;
+	background-color: white;
+
+	h4 {
+		color: #327ebd;
+		margin: 14px 0;
+	}
+
+	mat-divider {
+		margin-bottom: 10px;
+	}
+}
+.checkbox-container {
+	padding: 5px 15px 15px 15px;
+}
+
+.spinner-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+//   input:read-only {
+//     background-color: #B2B2B2;
+// }

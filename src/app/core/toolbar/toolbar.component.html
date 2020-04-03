@@ -1,0 +1,36 @@
+<!-- <stbui-loading *ngIf="showLoading"></stbui-loading> -->
+<mat-toolbar class="table-header mat-elevation-z4">
+    <button mat-icon-button (click)="sidenav.toggle();drawer.toggle();" *ngIf="matDrawerShow">
+        <i class="material-icons app-toolbar-menu">menu </i>
+    </button>
+    <button mat-icon-button (click)="sidenav.toggle();" *ngIf="!matDrawerShow">
+        <i class="material-icons app-toolbar-menu">menu </i>
+    </button>
+
+    <form class="imgPlaceholder">
+        <img ng-disabled="!isEnabled"src="./assets/logo_hospital.png" >
+    </form>
+
+    <div class="hospitalName1"> </div>
+ 
+    <div class="hospitalName" [ngSwitch]="isAdmin" >
+        <div *ngSwitchCase="'true'">
+            <mat-form-field >
+                <mat-select  Class="empty-select" >
+                    <mat-option *ngFor="let hospital of arrobjhospital" [value]="hospital.hospitalCode">
+                        {{hospital.hospitalName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div *ngSwitchCase="'false'">
+            <label *ngFor="let hospital of arrobjhospitalID">
+                {{hospital.hospitalName}}
+            </label>
+        </div>
+    </div>
+
+    <cdk-user-menu [currentUser]="toolbarHelpers?.currentUser"></cdk-user-menu>
+
+</mat-toolbar>

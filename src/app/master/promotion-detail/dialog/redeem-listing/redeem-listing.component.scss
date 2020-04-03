@@ -1,0 +1,132 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-width: 1000px;
+    // height: 550;
+    padding: 5px 5px 5px 5px;
+  }
+
+  
+  .container > * {
+    width: 100%;
+  }
+  
+  .form {
+    display: flex;
+    padding-top: 6px;
+  }
+
+
+.mat-dialog-content {
+    overflow-y: hidden !important;
+}
+
+
+.table-header {
+  background-color: #327ebd;
+  color: white;
+  padding: 0 5px;
+  height: 40px;
+}
+.table-container {
+  padding: 5px 5px 5px 5px;
+}
+.table-component-holder {
+  border: 1px solid #327ebd;
+  background-color: white;
+}
+
+.mat-dialog-container {
+  padding:0px !important;
+}
+
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-header-cell {
+  display:flex;
+  justify-content:center;
+}
+
+.mat-cell{
+  display:flex !important;
+  justify-content:center;
+}
+
+.mat-row{
+  min-height:33px;
+}
+
+.mat-header-row{
+  background-color: #9cb5e4;
+}
+.mat-row:nth-child(even){
+  background-color: #e9e5e5;
+  height: 10px;
+  color: white;
+}
+.mat-row:hover {
+  background-color:#faf9c8d3;
+}
+
+.Records{
+  text-align:center;
+
+}
+
+.spinner-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mat-column-actions {
+  flex: 0 0 100px;
+  align-content: center;
+}
+
+.mat-column-index{
+  flex: 0 0 3vw;
+}
+
+.mat-column-redeemDate{
+  flex: 0 0 7vw;
+}
+
+.mat-column-redeemNo{
+  flex: 0 0 6vw;
+}
+
+.mat-column-promotionDetail{
+  flex: 0 0 20vw;
+}
+
+.mat-column-hospitalName{
+  flex: 0 0 10vw;
+}
+
+.mat-column-hospitalClaim{
+  flex: 0 0 10vw;
+}
+
+.mat-column-redeemCreateby{
+  flex: 0 0 8vw;
+}
+
+.mat-column-isClaim{
+  flex: 0 0 7vw;
+}
+
+.mat-header-cell{
+  font-size: 14px;
+  font-weight: bold;
+}
